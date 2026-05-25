@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #FF6B6B;
+  --color-primary-dark: #E55A5A;
+  --color-secondary: #4ECDC4;
+  --color-accent: #FFE66D;
+  --color-background-light: #F7F9FC;
+  --color-background-dark: #121212;
+  --color-surface-light: #FFFFFF;
+  --color-surface-dark: #1E1E1E;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom base styles for the app */
+@layer base {
+  body {
+    @apply bg-[var(--color-background-light)] text-gray-900 dark:bg-[var(--color-background-dark)] dark:text-gray-100 font-sans antialiased selection:bg-primary selection:text-white transition-colors duration-300;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+}
+
+/* Reusable custom utility classes */
+@layer utilities {
+  .glass {
+    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border border-white/20 dark:border-gray-700/30;
+  }
+  
+  .glass-card {
+    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border border-white/20 dark:border-gray-700/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] rounded-2xl md:rounded-3xl;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+}
