@@ -30,6 +30,9 @@ import Grooming from "./pages/grooming/Grooming";
 import Chat from "./pages/chat/Chat";
 import HelpCenter from "./pages/support/HelpCenter";
 
+// Vendor Routes
+import VendorRoutes from "./vendor/routes/VendorRoutes";
+
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth();
@@ -78,6 +81,9 @@ function AppRoutes() {
         <Route path="support" element={<HelpCenter />} />
         {/* We will add other routes here iteratively */}
       </Route>
+      
+      {/* Vendor Routes */}
+      <Route path="/vendor/*" element={<VendorRoutes />} />
       
       {/* Fallback Route */}
       <Route path="*" element={<Navigate to="/" replace />} />
